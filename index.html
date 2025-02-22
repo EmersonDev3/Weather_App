@@ -1,38 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:,">
+
     <title>Document</title>
 </head>
+
 <body>
-    <div class="card" >
+    <div class="card">
         <div class="card-search">
             <input type="text" placeholder="Digite o nome da cidade" spellcheck="false">
             <button><img src="assets/search.png" alt="" width="32" height="32"></button>
-        </div> 
+        </div>
         <div class="weather">
-            <img src="/assets/rain.png" alt="" class="weather-icon" >
+            <img src="/assets/rain.png" alt="" class="weather-icon">
             <h1 class="temp">22°C</h1>
             <h2 class="city"> New York</h2>
             <div class="details">
                 <div class="col">
                     <img src="/assets/humidity.png" alt="" ">
                     <div>
-                        <p class="humidity">50%</p>
-                        <p>Humidity</p>
-                    </div>
+                        <p class=" humidity">50%</p>
+                    <p>Humidity</p>
                 </div>
-                <div class="col">
-                    <img src="/assets/wind.png" alt="">
-                    <div>
-                        <p class="wind">15 km/h</p>
-                        <p>Wind Speed</p>
-                    </div>
+            </div>
+            <div class="col">
+                <img src="/assets/wind.png" alt="">
+                <div>
+                    <p class="wind">15 km/h</p>
+                    <p>Wind Speed</p>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+    <script>
+
+        const apiKey = "a8be9f95563967d3153312b111ad3876";
+        const cityName = "Teresina";
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
+
+        async function checkWeather() {
+            const response = await fetch(apiUrl);
+            let data = await response.json();
+
+            console.log(data);
+           
+        }
+
+        checkWeather();
+
+    </script>
 </body>
+
 </html>
